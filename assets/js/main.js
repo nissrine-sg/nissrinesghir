@@ -1,3 +1,7 @@
+const analytics = document.createElement("script");
+analytics.src = "assets/js/analytics.js";
+document.head.appendChild(analytics);
+
 const creative = document.createElement("link");
 creative.rel = "stylesheet";
 creative.href = "assets/css/creative.css";
