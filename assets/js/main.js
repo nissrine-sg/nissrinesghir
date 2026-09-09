@@ -53,6 +53,6 @@ const removeLoader = () => { loader.style.opacity = "0"; window.setTimeout(() =>
 if (document.readyState === "complete") window.setTimeout(removeLoader, 160); else window.addEventListener("load", () => window.setTimeout(removeLoader, 160), { once: true });
 
 const addLegalLinks = () => document.querySelectorAll(".footer .copyright").forEach((copyright) => {
-  if (!copyright.querySelector("[data-legal-links]")) copyright.insertAdjacentHTML("beforeend", '<span data-legal-links style="display:block;margin-top:10px"><a href="cgu.html">CGU</a> · <a href="privacy.html">Politique de confidentialité</a></span>');
+  if (!copyright.querySelector("[data-legal-links]")) copyright.insertAdjacentHTML("beforeend", '<span data-legal-links style="display:inline-block;margin-left:8px"><a style="display:inline" href="cgu.html">CGU</a><span aria-hidden="true"> · </span><a style="display:inline" href="privacy.html">Politique de confidentialité</a></span>');
 });
 if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", addLegalLinks, { once: true }); else addLegalLinks();
