@@ -39,8 +39,7 @@ if (hero) {
           <article class="method-step"><span>05</span><h3>Améliorer</h3><p>Mesure de l’usage, retours et évolutions produit.</p></article>
         </div>
       </div>
-    </section>
-    `);
+    </section>`);
 }
 
 const menu = document.querySelector(".menu");
@@ -58,10 +57,7 @@ document.querySelectorAll(".reveal").forEach((element) => observer.observe(eleme
 
 document.querySelectorAll("[data-track]").forEach((link) => link.addEventListener("click", () => {
   if (typeof window.gtag === "function") {
-    window.gtag("event", link.dataset.track, {
-      link_url: link.href,
-      page_location: window.location.href
-    });
+    window.gtag("event", link.dataset.track, { link_url: link.href, page_location: window.location.href });
   }
 }));
 
@@ -71,7 +67,23 @@ document.querySelectorAll('a[href="booking.html"], a[href*="calendar.app.google"
   });
 });
 
-document.querySelectorAll("form:not([data-live-form])").forEach((form) => form.addEventListener("submit", (event) => {
-  event.preventDefault();
-}));
+document.querySelectorAll("form:not([data-live-form])").forEach((form) => form.addEventListener("submit", (event) => event.preventDefault()));
 
+const siteLoader = document.createElement("div");
+siteLoader.setAttribute("role", "status");
+siteLoader.setAttribute("aria-label", "Chargement du site");
+siteLoader.innerHTML = '<div style="text-align:center"><strong style="font-size:1.15rem;letter-spacing:.04em">Nissrine<span style="color:#63e6ff">.</span></strong><div style="width:132px;height:2px;background:#29425f;margin:14px auto 0;overflow:hidden"><span style="display:block;width:48%;height:100%;background:#63e6ff"></span></div></div>';
+Object.assign(siteLoader.style, { position: "fixed", inset: "0", zIndex: "9999", display: "grid", placeItems: "center", background: "#071425", color: "#fff", fontFamily: "inherit", transition: "opacity .2s ease" });
+document.body.prepend(siteLoader);
+
+const hideSiteLoader = () => {
+  siteLoader.style.opacity = "0";
+  window.setTimeout(() => siteLoader.remove(), 220);
+};
+window.addEventListener("load", () => window.setTimeout(hideSiteLoader, 160), { once: true });
+
+for (const copyright of document.querySelectorAll(".footer .copyright")) {
+  if (!copyright.querySelector("[data-legal-links]")) {
+    copyright.insertAdjacentHTML("beforeend", '<span data-legal-links style="display:block;margin-top:10px"><a href="cgu.html">CGU</a> · <a href="privacy.html">Politique de confidentialité</a></span>');
+  }
+}
