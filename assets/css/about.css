@@ -1,0 +1,27 @@
+.about-profile {
+  display: grid;
+  justify-items: start;
+  gap: 18px;
+}
+
+.about-portrait {
+  width: min(250px, 100%);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 7px solid #fff;
+  box-shadow: 0 18px 42px rgba(29, 25, 78, .16);
+}
+
+.about-profile h2 {
+  max-width: 310px;
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+}
+
+.about-profile .eyebrow { margin-top: 6px; }
+
+@media (max-width: 860px) {
+  .about-profile { justify-items: center; text-align: center; }
+  .about-profile h2 { max-width: 540px; }
+  .about-portrait { width: 220px; }
+}

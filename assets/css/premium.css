@@ -1,0 +1,14 @@
+/* Clear entry points for clients and recruiters. */
+.opportunities{padding:26px 0;background:#f1f1f8;border-bottom:1px solid var(--line)}
+.opportunity-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.opportunity-grid article{padding:30px;border:1px solid var(--line);border-radius:20px;background:#f9f9fd}
+.opportunity-grid article:first-child{background:#111a3d;color:#fff;border-color:#111a3d}
+.opportunity-grid span{display:block;text-transform:uppercase;letter-spacing:.14em;font-size:.7rem;font-weight:850;color:var(--blue)}
+.opportunity-grid article:first-child span{color:#c3bcff}
+.opportunity-grid h2{font-size:clamp(1.6rem,2.4vw,2.2rem);margin:13px 0}
+.opportunity-grid p{margin:0;color:var(--muted);max-width:48ch}
+.opportunity-grid article:first-child p{color:#d3d7ed}
+.opportunity-grid a{display:inline-flex;gap:10px;margin-top:22px;font-weight:800;color:var(--blue)}
+.opportunity-grid article:first-child a{color:#fff}
+.opportunity-grid b{font-size:1.1rem}
+@media(max-width:700px){.opportunity-grid{grid-template-columns:1fr}.opportunities{padding:14px 0}.opportunity-grid article{padding:24px}}
